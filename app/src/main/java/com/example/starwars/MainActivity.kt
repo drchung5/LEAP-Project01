@@ -111,18 +111,6 @@ fun MyAppUI() {
                     MyNavHost(navController = navHostController)
                 }
             },
-//            bottomBar = {
-//                BottomAppBar(
-//                    containerColor = MaterialTheme.colorScheme.secondary,
-//                    modifier = Modifier.height(40.dp)
-//                ) {
-//                    Text(
-//                        modifier = Modifier.fillMaxSize(),
-//                        text = stringResource(id = R.string.copyright),
-//                        textAlign = TextAlign.Center
-//                    )
-//                }
-//            },
 
             floatingActionButton = {
                 FloatingActionButton(
