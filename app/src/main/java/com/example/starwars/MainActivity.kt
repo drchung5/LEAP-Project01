@@ -1,7 +1,6 @@
 package com.example.starwars
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -9,13 +8,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.twotone.ArrowBack
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,7 +29,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -78,7 +74,6 @@ fun MyAppUI() {
     val scope = rememberCoroutineScope()
     val navHostController = rememberNavController()
     val drawerBackgroundColor = colorResource(id = R.color.white)
-    val context = LocalContext.current
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -130,10 +125,7 @@ fun MyAppUI() {
 
             floatingActionButton = {
                 FloatingActionButton(
-                    onClick = {
-                        val popped = navHostController.popBackStack()
-                        if (!popped) { Log.wtf("STACK","""${navHostController.backQueue.size}""") }
-                    },
+                    onClick = { navHostController.popBackStack() },
                     containerColor = MaterialTheme.colorScheme.secondary,
                     contentColor = Color.White
                 ) {
