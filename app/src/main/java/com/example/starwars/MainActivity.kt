@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FabPosition
@@ -36,6 +37,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -111,7 +113,18 @@ fun MyAppUI() {
                     MyNavHost(navController = navHostController)
                 }
             },
-
+            bottomBar = {
+                BottomAppBar(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.height(40.dp)
+                ) {
+                    Text(
+                        modifier = Modifier.fillMaxSize(),
+                        text = stringResource(id = R.string.copyright),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            },
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = { navHostController.popBackStack() },
